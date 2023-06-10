@@ -28,7 +28,7 @@ public class CarControl extends VehicleControl {
         boolean checkIfValid = false;
         while (!checkIfValid) {
             JOptionPane.showMessageDialog(null, panel);
-            checkIfValid = checkValidNumbers(constructionOfYearText.getText()) &&
+            checkIfValid = checkValidNumbers((String) constructionOfYearText.getSelectedItem()) &&
                     checkValidNumbers(mileageText.getText()) && checkValidNumbers(cargoSpace.getText()) &&
                     checkValidNumbers(amountOfSeats.getText());
         }
@@ -40,7 +40,7 @@ public class CarControl extends VehicleControl {
     @Override
     public String[] getText() {
         return new String[]{(String) brandOptions.getSelectedItem(), modelText.getText(),
-                constructionOfYearText.getText(), mileageText.getText(), (String) conditionOptions.getSelectedItem(),
+                (String) constructionOfYearText.getSelectedItem(), mileageText.getText(), (String) conditionOptions.getSelectedItem(),
                 (String) fuelKindOptions.getSelectedItem(), cargoSpace.getText(),
                 ((String) heatedSeats.getSelectedItem()).replace(" ", "_"),
                 amountOfSeats.getText(), (String) carType.getSelectedItem()};

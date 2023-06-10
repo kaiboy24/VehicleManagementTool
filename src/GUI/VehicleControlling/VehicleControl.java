@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -22,23 +23,33 @@ public abstract class VehicleControl {
     public static final String[] ColumnNames = new String[]{
             "Brand", "Model", "Construction of year", "Mileage", "Condition"
     };
+    protected static List<String> listOfYears = new LinkedList<>();
+
+
     final static JComboBox brandOptions = new JComboBox(Arrays.stream(Brand.values())
             .map(brand -> brand.toString()).toArray(String[]::new));
     final static JComboBox conditionOptions = new JComboBox(Arrays.stream(Condition.values())
             .map(condition -> condition.toString()).toArray(String[]::new));
     final static JComboBox fuelKindOptions = new JComboBox(Arrays.stream(FuelKind.values())
             .map(fuelKind -> fuelKind.toString()).toArray(String[]::new));
+    static JComboBox constructionOfYearText;
+
 
     protected final JPanel panel = new JPanel(new GridLayout(5, 15));
 
     final JTextField modelText = new JTextField("Model", 15);
     final JTextField mileageText = new JTextField("Mileage", 6);
-    final JTextField constructionOfYearText = new JTextField("Construction of Year", 4);
     protected DefaultTableModel model;
     protected VehicleType vehicleType;
     protected JTable vehicleTable;
 
     public VehicleControl(DefaultTableModel model, VehicleType vehicleType, JTable vehicleTable) {
+        for(int year = 1980; year<= Calendar.getInstance().get(Calendar.YEAR); year++) {
+            listOfYears.add(year+"");
+        }
+        this.constructionOfYearText = new JComboBox(Arrays.stream(listOfYears.toArray())
+                .map(year -> year.toString()).toArray(String[]::new));
+
         this.model = model;
         this.vehicleType = vehicleType;
         this.vehicleTable = vehicleTable;
@@ -68,7 +79,7 @@ public abstract class VehicleControl {
         boolean checkIfValid = false;
         while (!checkIfValid) {
             JOptionPane.showMessageDialog(null, panel);
-            checkIfValid = checkValidNumbers(constructionOfYearText.getText()) &&
+            checkIfValid = checkValidNumbers((String) constructionOfYearText.getSelectedItem()) &&
                     checkValidNumbers(mileageText.getText());
         }
         AddVehicle.addVehicle(VehicleFactory.newVehicle(vehicleType, getText()));

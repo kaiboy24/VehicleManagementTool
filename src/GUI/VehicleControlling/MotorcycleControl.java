@@ -25,7 +25,7 @@ public class MotorcycleControl extends VehicleControl {
     @Override
     public String[] getText() {
         return new String[]{(String) brandOptions.getSelectedItem(), modelText.getText(),
-                constructionOfYearText.getText(), mileageText.getText(), (String) conditionOptions.getSelectedItem(),
+                (String) constructionOfYearText.getSelectedItem(), mileageText.getText(), (String) conditionOptions.getSelectedItem(),
                 (String) fuelKindOptions.getSelectedItem(),
                 ((String) luggageRack.getSelectedItem()).replace(" ", "_"),
                 ((String) pillionSeat.getSelectedItem()).replace(" ", "_"),
