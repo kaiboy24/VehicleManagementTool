@@ -1,0 +1,4 @@
+Volkswagen,Golf,2021,4000,Used,Diesel,380,heated_seats_installed,5,Hatchback,
+BMW,X5,2000,2000,New,Petrol,200,heated_seats_installed,7,SUV,
+Skoda,Octavia,2023,27000,Used,Diesel,490,heated_seats_installed,5,Sedan,
+Toyota,Fortuner,2018,6000,Used,Petrol,200,no_heated_seats,7,SUV,
