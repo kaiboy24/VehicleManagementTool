@@ -1,8 +1,7 @@
 package Vehicles.VehicleProperties;
 
 public enum Brand {
-    BMW, Audi, MercedesBenz, Volkswagen, Opel, Porsche, Ford, Hyundai,
-    Honda, Daimler, Toyota, Peugeot, Renault, Kia, Volvo, Suzuki, Skoda, MotoGuzzi, Aprilia,
-    KTM, Ducati, Vespa, Yamaha, HarleyDavidson, Triumph;
+    Aprilia, Audi, BMW, Daimler, Ducati, Ford, HarleyDavidson, Honda, Hyundai, Kia, KTM, MercedesBenz,
+    MotoGuzzi, Opel, Peugeot, Porsche, Renault, Skoda, Suzuki, Toyota, Triumph, Vespa, Volkswagen, Volvo, Yamaha
 
 }

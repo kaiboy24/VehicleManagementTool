@@ -1,11 +1,7 @@
 package GUI;
 
-import GUI.VehicleButtons.CarButtons;
-import GUI.VehicleButtons.MotorcycleButtons;
-import GUI.VehicleButtons.VehicleButtons;
 import GUI.VehicleButtons.VehicleButtonsFactory;
 import Vehicles.VehicleProperties.VehicleType;
-import VehicleBook.VehicleBook;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;

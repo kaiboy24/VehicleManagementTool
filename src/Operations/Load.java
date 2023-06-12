@@ -7,7 +7,6 @@ import Vehicles.Vehicle;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class Load {
     private static Loader loadVehicles = new LoadVehicleBook();

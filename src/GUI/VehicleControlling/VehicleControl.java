@@ -78,12 +78,16 @@ public abstract class VehicleControl {
         UIManager.put("OptionPane.okButtonText", "Add");
         boolean checkIfValid = false;
         while (!checkIfValid) {
-            JOptionPane.showMessageDialog(null, panel);
+            int n = JOptionPane.showConfirmDialog(null,panel,"Add a vehicle"
+                    ,JOptionPane.CANCEL_OPTION);
+            if(n == JOptionPane.CANCEL_OPTION){break;}
             checkIfValid = checkValidNumbers((String) constructionOfYearText.getSelectedItem()) &&
                     checkValidNumbers(mileageText.getText());
         }
-        AddVehicle.addVehicle(VehicleFactory.newVehicle(vehicleType, getText()));
-        model.addRow(VehicleFactory.newVehicle(vehicleType, getText()).getTable());
+        if(checkIfValid){
+            AddVehicle.addVehicle(VehicleFactory.newVehicle(vehicleType, getText()));
+            model.addRow(VehicleFactory.newVehicle(vehicleType, getText()).getTable());
+        }
     }
 
     public void searchAction() { //searches and returns Vehicles in a table

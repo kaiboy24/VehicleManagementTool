@@ -1,14 +1,8 @@
 package Operations;
 
 import VehicleBook.VehicleBook;
-import Vehicles.Car;
 import Vehicles.Vehicle;
-import Vehicles.VehicleProperties.Brand;
-import Vehicles.VehicleProperties.Condition;
-import Vehicles.VehicleProperties.FuelKind;
 
-import java.util.Arrays;
-import java.util.HashMap;
 
 public class AddVehicle{
 

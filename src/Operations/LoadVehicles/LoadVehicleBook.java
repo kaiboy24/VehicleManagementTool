@@ -8,12 +8,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.function.Function;
 
 public class LoadVehicleBook implements Loader {
     private void loadVehicleBook(HashMap<Vehicle, Vehicle> vehicles, String source, VehicleType vehicleType){
         String[] vehicleInformation;
-
         try{
             FileReader FR = new FileReader(source);
             BufferedReader BR = new BufferedReader(FR);
