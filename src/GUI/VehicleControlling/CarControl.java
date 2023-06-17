@@ -36,7 +36,7 @@ public class CarControl extends VehicleControl {
         }
         if(checkIfValid){
             AddVehicle.addVehicle(VehicleFactory.newVehicle(vehicleType, getText()));
-            model.addRow(VehicleFactory.newVehicle(vehicleType, getText()).getTable());
+            model.addRow(VehicleFactory.newVehicle(vehicleType, getText()).getInformationAsArray());
         }
 
     }

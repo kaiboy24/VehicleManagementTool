@@ -86,7 +86,7 @@ public abstract class VehicleControl {
         }
         if(checkIfValid){
             AddVehicle.addVehicle(VehicleFactory.newVehicle(vehicleType, getText()));
-            model.addRow(VehicleFactory.newVehicle(vehicleType, getText()).getTable());
+            model.addRow(VehicleFactory.newVehicle(vehicleType, getText()).getInformationAsArray());
         }
     }
 
@@ -94,7 +94,7 @@ public abstract class VehicleControl {
         UIManager.put("OptionPane.okButtonText", "Search");
         JOptionPane.showMessageDialog(null, panel);
         List<String[]> tmp = new LinkedList<>();
-        Search.search(vehicleType, getText()).forEach(vehicle -> tmp.add(vehicle.getTable()));
+        Search.search(vehicleType, getText()).forEach(vehicle -> tmp.add(vehicle.getInformationAsArray()));
         JOptionPane.showMessageDialog(null, new JScrollPane(new JTable(tmp.toArray(String[][]::new), ColumnNames)));
     }
 
@@ -133,4 +133,3 @@ public abstract class VehicleControl {
 
     public abstract String[] getText();
 }
-

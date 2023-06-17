@@ -16,14 +16,13 @@ public class LoadVehicleBook implements Loader {
             FileReader FR = new FileReader(source);
             BufferedReader BR = new BufferedReader(FR);
             String line = BR.readLine();
-
             while (line != null){
                 vehicleInformation = line.split(",");
                 for(int i = 0; i < vehicleInformation.length; i++){
                     vehicleInformation[i] = vehicleInformation[i].replace("_", " ");
                 }
-                Vehicle currentVehicle = VehicleFactory.newVehicle(vehicleType, vehicleInformation);
-                vehicles.put(currentVehicle, currentVehicle);
+                Vehicle vehicle = VehicleFactory.newVehicle(vehicleType, vehicleInformation);
+                vehicles.put(vehicle, vehicle);
                 line = BR.readLine();
             }
             BR.close();

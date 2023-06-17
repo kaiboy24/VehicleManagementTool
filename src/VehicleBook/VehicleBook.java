@@ -21,7 +21,7 @@ public class VehicleBook {
     public static String[][] getVehiclesAs2DArray(HashMap<Vehicle, Vehicle> vehicle){ //returns 2D-Array from a hashmap
         // for their corresponding table
         List<String[]> tmp = new LinkedList<>();
-        vehicle.values().forEach(a -> tmp.add(a.getTable()));
+        vehicle.values().forEach(a -> tmp.add(a.getInformationAsArray()));
         return tmp.toArray(String[][]::new);
     }
     public static VehicleBook getInstance(){return instance;}

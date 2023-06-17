@@ -15,8 +15,8 @@ public class SaveVehicles implements Saver {
             String currentLine;
             FileWriter fw = new FileWriter(target);
             PrintWriter pw = new PrintWriter(fw);
-            ArrayList<Vehicle> currentVehicles = new ArrayList<Vehicle>(vehicles.values());
-            int size = currentVehicles.get(0).getInformationAsArray().length;
+            ArrayList<Vehicle> currentVehicles = new ArrayList<>(vehicles.values());
+            int size = currentVehicles.get(0).vehicleInformation.size();
             for (Vehicle vehicle: currentVehicles){
                 String[] vehicleInformation = vehicle.getInformationAsArray();
                 for(int i = 0; i < vehicleInformation.length; i++){

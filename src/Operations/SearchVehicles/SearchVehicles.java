@@ -9,23 +9,21 @@ public class SearchVehicles implements Searcher {
     public SearchVehicles() {
     }
 
-    private List<Vehicle> searchVehicles(String[] searchKeys, HashMap<Vehicle, Vehicle> vehicles) {
-        List<Vehicle> currentVehicles = new LinkedList<>(vehicles.values());
-        int size = currentVehicles.get(0).getInformationAsArray().length;
-        String[] currentVehicle;
+    private List<Vehicle> searchVehicles(HashMap<String, String> searchKeys, HashMap<Vehicle, Vehicle> vehicles) {
+        int i;
         List<Vehicle> searchResults = new LinkedList<>();
-        for(Vehicle vehicle: currentVehicles) {
-            currentVehicle = vehicle.getInformationAsArray();
-            for (int i = 0; i < size; i++) {
-                if(!searchKeys[i].isEmpty() && !currentVehicle[i].equals(searchKeys[i])){
+        for(Map.Entry<Vehicle, Vehicle> vehicleEntry: vehicles.entrySet()){
+            i = 0;
+            for(Map.Entry<String, String> searchEntry: searchKeys.entrySet()){
+                if(!searchEntry.getValue().isEmpty() && !searchEntry.getValue().equals(vehicleEntry.getValue().vehicleInformation.get(searchEntry.getKey()))){
                     break;
+                } else if (i == vehicleEntry.getValue().vehicleInformation.size() - 1) {
+                    searchResults.add(vehicleEntry.getValue());
                 }
-                else if (i == size - 1) {
-                    searchResults.add(vehicle);
-                }
+                i++;
             }
-
         }
+
         if (searchResults.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Car(s) not found",
                     "Error", JOptionPane.ERROR_MESSAGE);
@@ -34,7 +32,7 @@ public class SearchVehicles implements Searcher {
     }
 
     @Override
-    public List<Vehicle> search(String[] searchKeys, HashMap<Vehicle, Vehicle> vehicles) {
+    public List<Vehicle> search(HashMap<String, String> searchKeys, HashMap<Vehicle, Vehicle> vehicles) {
         return searchVehicles(searchKeys, vehicles);
     }
 }

@@ -1,10 +1,11 @@
 package Vehicles;
 
-import Vehicles.VehicleProperties.VehicleType;
 import Vehicles.VehicleProperties.Brand;
 import Vehicles.VehicleProperties.Condition;
+import Vehicles.VehicleProperties.VehicleType;
 import Vehicles.VehicleProperties.FuelKind;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public abstract class Vehicle {
@@ -14,19 +15,29 @@ public abstract class Vehicle {
     protected String mileage;
     protected String constructionOfYear;
     protected FuelKind fuelKind;
+
+    public HashMap<String, String> vehicleInformation;
+
     //String[] inputVehicle = {String brand, String model, String constructionOfYear, String mileage, String condition, String fuelKind}
-    protected Vehicle(String[] inputVehicle) {
-        this.brand = Brand.valueOf(inputVehicle[0].replace(" ", "_"));
-        this.model = inputVehicle[1];
-        this.constructionOfYear = inputVehicle[2];
-        this.mileage = inputVehicle[3];
-        this.condition = Condition.valueOf(inputVehicle[4].replace(" ", "_"));
-        this.fuelKind = FuelKind.valueOf(inputVehicle[5].replace(" ", "_"));
+    protected static String[] carPropertyNames;
+    protected Vehicle(HashMap<String, String> vehicleInformation, String[] motorcyclePropertyNames) {
+        this.fuelKind = FuelKind.valueOf(vehicleInformation.get("Fuel kind"));
+        this.brand = Brand.valueOf(vehicleInformation.get("Brand"));
+        this.condition = Condition.valueOf(vehicleInformation.get("Condition"));
+        this.constructionOfYear = vehicleInformation.get("Construction of year");
+        this.model = vehicleInformation.get("Model");
+        this.mileage = vehicleInformation.get("Mileage");
+
+        this.vehicleInformation = vehicleInformation;
+        this.carPropertyNames = motorcyclePropertyNames;
     }
 
-    public abstract String[] getTable();
-    public abstract VehicleType getType();
     public abstract String[] getInformationAsArray();
+
+
+    public abstract VehicleType getType();
+
+
 
 
 
