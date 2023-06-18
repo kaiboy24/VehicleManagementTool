@@ -8,8 +8,8 @@ import java.util.*;
 public class SearchVehicles implements Searcher {
     public SearchVehicles() {
     }
-
-    private List<Vehicle> searchVehicles(HashMap<String, String> searchKeys, HashMap<Vehicle, Vehicle> vehicles) {
+    @Override
+    public List<Vehicle> search(HashMap<String, String> searchKeys, HashMap<Vehicle, Vehicle> vehicles) {
         int i;
         List<Vehicle> searchResults = new LinkedList<>();
         for(Map.Entry<Vehicle, Vehicle> vehicleEntry: vehicles.entrySet()){
@@ -29,10 +29,5 @@ public class SearchVehicles implements Searcher {
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
         return searchResults;
-    }
-
-    @Override
-    public List<Vehicle> search(HashMap<String, String> searchKeys, HashMap<Vehicle, Vehicle> vehicles) {
-        return searchVehicles(searchKeys, vehicles);
     }
 }

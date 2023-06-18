@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SaveVehicles implements Saver {
-    public static void saveVehicles(String target, HashMap<Vehicle, Vehicle> vehicles){ /*saves vehicle Hashmap
+    @Override
+    public void save(String target, HashMap<Vehicle, Vehicle> vehicles){ /*saves vehicle Hashmap
     to their corresponding txt file*/
         try{
             String currentLine;
@@ -37,8 +38,4 @@ public class SaveVehicles implements Saver {
         }
     }
 
-    @Override
-    public void save(String source, HashMap<Vehicle, Vehicle> vehicles){
-        saveVehicles(source, vehicles);
-    }
 }
